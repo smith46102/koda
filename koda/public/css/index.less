@@ -1,0 +1,147 @@
+@import "share/reset.less";
+@import "share/mixins.less";
+
+/* import google roboto font */
+
+@import url("http://fonts.googleapis.com/css?family=Roboto:300,400,600&subset=latin,cyrillic-ext");
+
+.roboto (@size: 15px, @lineheight: 1, @color: inherit) {
+	font-family: 'Roboto'; font-size: @size; line-height: @lineheight;
+	color: @color; font-weight: 400;
+}
+.roboto-light (@size: 15px, @lineheight: 1, @color: inherit) {
+	font-family: 'Roboto'; font-size: @size; line-height: @lineheight;
+	color: @color; font-weight: 300;
+}
+.roboto-bold (@size: 15px, @lineheight: 1, @color: inherit) {
+	font-family: 'Roboto'; font-size: @size; line-height: @lineheight;
+	color: @color; font-weight: 600;
+}
+
+
+/* setup colors */
+
+@tabColor: #3e4758;
+@tabLightColor: #f2f3f5;
+@tabGreenColor: #3FD361;
+@tabLightBlueColor: #00BDF4;
+@tabBlueColor: #00a5d4;
+@tabDarkBlueColor: #0087bc;
+@tabRedColor: #ff4548;
+@tabOrangeColor: #ffca00;
+
+/* setup body */
+
+html, body {
+	height: 100%;
+	overflow-x: hidden;
+	overflow-y: hidden;
+}
+
+.Body {
+	.flex-wrap-column;
+	background: @tabColor;
+	padding-left: 100px;
+}
+
+.Content {
+	flex: 1;
+	.flex-wrap-column;
+	position: relative;
+	width: 100%; height: 100%;
+	margin-bottom: 3px;
+	background: #fff;
+	.radius(0 0 0 5px);
+	&._with_aside {
+		outline: 1px solid #ccc;
+		background: #fff url('/public/img/content-side.png') repeat-y;
+		background-position: 100% 0;
+		background-size: 35% 5px;
+	}
+}
+
+.ContentWrap {
+	overflow: auto;
+	width: 100%;
+	flex: 1 1 200px;
+	position: relative;
+	.transition(width, 0.3s, ease);
+	&._disabled {
+		display: none;
+	}
+	&._half {
+		width: 44%;
+	}
+	&._loading::after {
+		content: ''; display: block; position: absolute;
+		top: 0; left: 0; right: 0; bottom: 0;
+		background: fade(#fff, 50%);
+	}
+}
+
+.EmptyBlock {
+	padding: 20px;
+	border: 2px dashed darken(@tabLightColor, 10%);
+	.roboto(18px, 26px, lighten(@tabColor, 30%));
+	text-align: center;
+	&._margin {
+		margin: 20px;
+	}
+	&-img {
+		display: block;
+		margin: 0 auto 20px;
+		width: 80px; height: 80px;
+	}
+}
+
+/* use gui */
+@import "gui/buttons.less";
+@import "gui/menus.less";
+@import "gui/tags.less";
+@import "gui/inputs.less";
+@import "gui/forms.less";
+@import "gui/users-input.less";
+@import "gui/user-item.less";
+@import "gui/workspace-item.less";
+@import "gui/autocomplete.less";
+@import "gui/select.less";
+@import "gui/hint.less";
+@import "gui/calendar.less";
+
+/* use interface blocks */
+@import "interface/header.less";
+@import "interface/header-search.less";
+@import "interface/header-bar.less";
+@import "interface/sidebar.less";
+@import "interface/sidebar-projects.less";
+@import "interface/popup.less";
+@import "interface/task-list.less";
+@import "interface/task-window.less";
+@import "interface/task-comments.less";
+@import "interface/activities.less";
+
+/* use layouts */
+@import "layouts/profile.less";
+@import "layouts/project.less";
+@import "layouts/dashboard.less";
+@import "layouts/messages.less";
+@import "layouts/workspace.less";
+
+
+/* make webkit scrollbars */
+
+::-webkit-scrollbar {
+	width: 6px;
+	padding: 3px;
+}
+::-webkit-scrollbar-track {
+	background: fade(#000, 5%);
+	border-radius: 3px;
+}
+::-webkit-scrollbar-thumb {
+	background: fade(#000, 10%);
+	border-radius: 3px;
+	&:hover {
+		background: fade(#000, 30%);
+	}
+}

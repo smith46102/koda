@@ -1,0 +1,90 @@
+.deb () {
+	outline: 1px dotted red;
+}
+
+.radius (@radius: 3px) {
+	border-radius: @radius;
+	-moz-border-radius: @radius;
+	-webkit-border-radius: @radius;
+}
+
+.gradient (@col1, @col2) {
+	background: @col1;
+	background: -moz-linear-gradient(@col1, @col2);
+	background: -ms-linear-gradient(@col1, @col2);
+	background: -o-linear-gradient(@col1, @col2);
+	background: -webkit-linear-gradient(@col1, @col2);
+}
+
+.transition (@name: all, @time: 0.3s, @curve: ease) {
+	-moz-transition: @name @time @curve;
+	-webkit-transition: @name @time @curve;
+	-o-transition: @name @time @curve;
+	transition: @name @time @curve;
+}
+
+.transform (@trans) {
+	-moz-transform: @trans;
+	-webkit-transform: @trans;
+	-o-transform: @trans;
+	transform: @trans;
+}
+
+.borderbox () {
+	box-sizing: border-box;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing: border-box;
+}
+
+.font (@size, @line: 120%, @color: inherit) {
+	font-weight: normal; font-size: @size; line-height: @line; color: @color;
+}
+
+.fontbold (@size, @line : 120%, @color: inherit) {
+	font-weight: bold; font-size: @size; line-height: @line; color: @color;
+}
+
+.unselectable (@what: none) {
+	-webkit-user-select: @what;
+	-moz-user-select: @what;
+	-ms-user-select: @what;
+	-o-user-select: @what;
+	user-select: @what;
+}
+
+.clickable () {
+	.unselectable;
+	cursor: pointer;
+}
+
+.clearfix () {
+	&:after {content: ''; display: block; clear: both;}
+}
+
+.ellipsis () {
+	white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+
+.upper() {
+	text-transform: uppercase; letter-spacing: 0.1em;
+}
+
+.flex-wrap-line {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-flow: row wrap;
+	flex-flow: row wrap;
+}
+
+.flex-wrap-column {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-flow: column wrap;
+	flex-flow: column wrap;
+}
